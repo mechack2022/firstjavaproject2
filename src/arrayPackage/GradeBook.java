@@ -104,38 +104,31 @@ public class GradeBook {
              // print bar of asterisks
              for ( int stars = 0; stars < frequency[ counter ]; stars++ )
                  System.out.print( "*" );
-             System.out.println(); // start a    new line of output
+             System.out.println(); // start a new line of output
          }
-
-
      }
-
 
     public void outputGrades(){
         System.out.println("Below are the grades");
         System.out.print("            ");
-
-//             create columns heading like test 1 test 2 ...
-        for(int test = 0; test<grades.length; test++){
+//      create columns heading like test 1 test 2 ...
+        for(int test = 0; test<grades[0].length; test++)
             System.out.printf("test %d  ", test + 1 );
-
-        }
         System.out.print("Average ");
 //     create rows/columns of text representing array grades
-        for(int student = 0; student <= grades.length; student++){
+        for(int student = 0; student < grades.length; student++)
+        {
             System.out.printf("student %2d", student + 1);
-            for(int studentGrade = 0; studentGrade < grades[student].length; studentGrade ++){
-                System.out.printf("%8d\n", grades[student][studentGrade]);
+            for(int test : grades[student])
+              {
+                System.out.printf("%8d\n", test);
                }
-
             double average = calculateGradeAverage( grades[ student ] );
              System.out.printf( "%9.2f\n", average );
-
-           }
         }
+      }
 
-            public void processGrades()
-            {
+            public void processGrades() {
                 // output grades array
                 outputGrades();
                 // call methods getMinimum and getMaximum
@@ -144,8 +137,7 @@ public class GradeBook {
                         "Highest grade in the grade book is", getMaximum() );
                 // output grade distribution chart of all grades on all tests
                 gradeBarChat();
-            } // end method processGrades
-
+            }
 
 
 }

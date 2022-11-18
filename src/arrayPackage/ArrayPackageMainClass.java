@@ -26,8 +26,7 @@ public class ArrayPackageMainClass {
         barChat.multidimentionalArray();
         System.out.println("-------------------------");
         System.out.println("GradeBookTest");
-        gradeBook.processGrades();ß
+        gradeBook.processGrades();
 //
-
     }
 }
