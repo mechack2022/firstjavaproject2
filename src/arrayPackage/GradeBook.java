@@ -110,18 +110,18 @@ public class GradeBook {
 
     public void outputGrades(){
         System.out.println("Below are the grades");
-        System.out.print("            ");
+        System.out.print("                ");
 //      create columns heading like test 1 test 2 ...
         for(int test = 0; test<grades[0].length; test++)
-            System.out.printf("test %d  ", test + 1 );
-        System.out.print("Average ");
+            System.out.printf("test%2d  ", test + 1 );
+        System.out.print("Average \n");
 //     create rows/columns of text representing array grades
         for(int student = 0; student < grades.length; student++)
         {
             System.out.printf("student %2d", student + 1);
             for(int test : grades[student])
               {
-                System.out.printf("%8d\n", test);
+                System.out.printf("%8d", test);
                }
             double average = calculateGradeAverage( grades[ student ] );
              System.out.printf( "%9.2f\n", average );
