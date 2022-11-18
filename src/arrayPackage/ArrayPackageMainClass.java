@@ -26,8 +26,8 @@ public class ArrayPackageMainClass {
         barChat.multidimentionalArray();
         System.out.println("-------------------------");
         System.out.println("GradeBookTest");
-        gradeBook.getMinimum();
-        gradeBook.getMaximum();
-        gradeBook.calculateGradeAverage();
+        gradeBook.processGrades();ß
+//
+
     }
 }
