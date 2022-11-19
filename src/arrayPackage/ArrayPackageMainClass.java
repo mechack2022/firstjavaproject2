@@ -1,5 +1,8 @@
 package arrayPackage;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 public class ArrayPackageMainClass {
 
     public static void main(String[] args){
@@ -16,6 +19,24 @@ public class ArrayPackageMainClass {
                 { 87, 93, 73 }
         };
 
+
+        ArrayList< String > items = new ArrayList< String >();
+        items.add( "red" );
+        items.add( 0, "yellow" );
+        items.add("taiwo");
+        items.add("kenny");
+        items.add("mumsy");
+        items.add(2, "mumsy");
+
+        display(items, "traversing using enhance loop");
+//     using Iterator
+        Iterator iterator= items.iterator();
+        System.out.println("tranversing using iterator");
+        while(iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
+
+
        BarChartsToDisplayArrayDataGraphically barChat = new  BarChartsToDisplayArrayDataGraphically();
        GradeBook gradeBook = new GradeBook("DECAGON CSC104", grades);
        barChat.displayResult();
@@ -27,6 +48,17 @@ public class ArrayPackageMainClass {
         System.out.println("-------------------------");
         System.out.println("GradeBookTest");
         gradeBook.processGrades();
+        System.out.println("-------------------------");
+        System.out.println("Arraylist Collection");
+
 //
     }
+
+    public static void display(ArrayList<String> items, String header) {
+        System.out.printf("%s :", header);
+        for (String item : items) {
+            System.out.println(item);
+        }
+    }
+
 }
