@@ -5,6 +5,6 @@ public class GenericPractice<T> {
     private int count = 0;
 
     public void add(T item){
-        items[count++] = items
+//        items[count++] = items; items
     }
 }

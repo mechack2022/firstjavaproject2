@@ -1,15 +1,15 @@
 package Recursive;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Recursive {
+    public int sumlist(int[] arr, int n){
+          if(n<= 0) {
+              return  0;
+          }
+        else{
+            return sumlist(arr, n-1) + arr[n-1];
+         }
 
-    ArrayList<Integer> numbers = new ArrayList<Integer>();
-
-    public int sumlist(int el){
-        if(numbers.length == 1){
-            return numbers[0];
-        }
-        sumlist()
     }
 }
