@@ -5,7 +5,8 @@ public class RecursiveMain {
 
          Recursive recur = new Recursive();
          int[] arr =new int[]{1,2,3,4, 5};
-         System.out.print(recur.sumlist(arr, arr.length));
+         System.out.println(recur.sumlist(arr, arr.length));
+         System.out.println(recur.factorial(4));
 
      }
 }
