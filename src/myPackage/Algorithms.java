@@ -184,7 +184,7 @@ public class Algorithms {
     }
 
     //    implementation of bubble sort algorithm
-   /* public static int[] bubbleSort(int[] numbers) {
+   public static int[] bubbleSort(int[] numbers) {
         int temp;
         for (int i = 0; i < numbers.length; i++) {
             for (int j = i + 1; i < numbers.length; j++) {
@@ -203,7 +203,6 @@ public class Algorithms {
      return numbers;
     }
 
-*/
 
     /**
      * You are given an array (which will have a length of at least 3,
