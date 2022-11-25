@@ -18,5 +18,12 @@ public class Recursive {
         }
         return n * factorial(n-1) ;
     }
+    public int sumDigit(int n){
+        if(n <= 0){
+            return 0;
+        }
+        return n + sumDigit(n-1);
+    }
+
 
 }

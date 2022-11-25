@@ -7,6 +7,7 @@ public class RecursiveMain {
          int[] arr =new int[]{1,2,3,4, 5};
          System.out.println(recur.sumlist(arr, arr.length));
          System.out.println(recur.factorial(4));
+         System.out.println(recur.sumDigit(10));
 
      }
 }
