@@ -8,6 +8,8 @@ public class RecursiveMain {
          System.out.println(recur.sumlist(arr, arr.length));
          System.out.println(recur.factorial(4));
          System.out.println(recur.sumDigit(10));
+         System.out.println(recur.power_m_n(3, 2));
+         System.out.println(recur.power_m_n(2, 0));
 
      }
 }

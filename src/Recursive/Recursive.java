@@ -25,5 +25,11 @@ public class Recursive {
         return n + sumDigit(n-1);
     }
 
-
+  public int power_m_n(int m, int n){
+        if(m == 0){
+            return 0;
+        }if((m==1) || (n == 0)){
+            return 1;
+      }else return m * power_m_n(m , n-1);
+  }
 }

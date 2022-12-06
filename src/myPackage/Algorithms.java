@@ -2,6 +2,7 @@ package myPackage;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Algorithms {
 
@@ -10,27 +11,58 @@ public class Algorithms {
     int number;
     String[] arrString;
 
+
     //    main method
     public static void main(String[] args) {
         Algorithms alg = new Algorithms("software developers are massive");
         Algorithms alg2 = new Algorithms("decagon");
         Algorithms alg3 = new Algorithms("princess");
 
-        alg.reverseString();
-        System.out.println(alg.reverseString2());
-        System.out.println(alg2.palindrome());
-        alg3.characterOccurance();
-        System.out.println("The number of occurance is " + alg.singleCharacterOccurance('s'));
-        stringAnagram("fired", "fried");
-        stringAnagram("bread", "beads");
-        System.out.println("VOWEL AND CONSONANT COUNT");
-        countVowelCounsonant("taiwo");
-        countVowelCounsonant("gboyeguntaiwo");
-        System.out.println("BUBBLE SORT IMPLEMENTATION");
-//        bubbleSort(new int[]{7, 2, 9, 6, 4});
+//        alg.reverseString();
+//        System.out.println(alg.reverseString2());
+//        System.out.println(alg2.palindrome());
+//        alg3.characterOccurance();
+//        System.out.println("The number of occurance is " + alg.singleCharacterOccurance('s'));
+//        stringAnagram("fired", "fried");
+//        stringAnagram("bread", "beads");
+//        System.out.println("VOWEL AND CONSONANT COUNT");
+//        countVowelCounsonant("taiwo");
+//        countVowelCounsonant("gboyeguntaiwo");
+//        System.out.println("BUBBLE SORT IMPLEMENTATION");
+////        bubbleSort(new int[]{7, 2, 9, 6, 4});
+//
+//        returnOddValue(new int[]{2, 4, 0, 100, 4, 11, 2602, 36});
+//        returnOddValue(new int[]{160, 3, 1719, 19, 11, 13, -21});
+//
+//        System.out.println("---------------");
+//        System.out.println("DUPLICATE COUNT");
+//        System.out.println(duplicateCount("tAiiwa"));
+//        System.out.println(duplicateCount("abcde"));
+//        System.out.println(duplicateCount("aabbcdec"));
+//        System.out.println(duplicateCount("aabBcde"));
+//        System.out.println(duplicateCount("Indivisibilities"));
+//        System.out.println(duplicateCount("indivisibility"));
+//        System.out.println(duplicateCount("ABBA"));
+//        System.out.println(duplicateCount("aA11"));
+//        System.out.println(duplicateCount("aabbcde"));
+//
+//        System.out.println("---------------");
+//
+//        System.out.println(alg.reverseString1("taiwo"));
+//
+//        System.out.println("---------------");
+//
+//    rotateArray(new int[]{1,2,3,4,5,6,7}, 3);
+//        getChaIndex("love", 9);
+//        getChaIndex("System.out.println(\"The number of occurance is \" + alg.singleCharacterOccurance('s'))", 1);
 
-        returnOddValue(new int[]{2, 4, 0, 100, 4, 11, 2602, 36});
-        returnOddValue(new int[]{160, 3, 1719, 19, 11, 13, -21});
+        int arr[] = {1, 2, 3, 4, 5, 6, 7, 8};
+        int k = 3;
+
+        int n = arr.length;
+
+        reverseInGroups(arr, n, k);
+
 
     }
 
@@ -184,7 +216,7 @@ public class Algorithms {
     }
 
     //    implementation of bubble sort algorithm
-   public static int[] bubbleSort(int[] numbers) {
+    public static int[] bubbleSort(int[] numbers) {
         int temp;
         for (int i = 0; i < numbers.length; i++) {
             for (int j = i + 1; i < numbers.length; j++) {
@@ -200,7 +232,7 @@ public class Algorithms {
                 }
             }
         }
-     return numbers;
+        return numbers;
     }
 
 
@@ -231,4 +263,139 @@ public class Algorithms {
         }
 
     }
+
+    public static int duplicateCount(String text) {
+        // Write your code here
+        int count = 0;
+        String textInLowerCase = text.toLowerCase();
+        char[] temptext = textInLowerCase.toCharArray();
+        for (int i = 0; i < temptext.length; i++) {
+            for (int j = i + 1; j < temptext.length; j++) {
+                if (temptext[i] == temptext[j]) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    public String reverseString1(String str) {
+//        conver to array  of character
+        String result = "";
+        char[] newArray = str.toCharArray();
+        System.out.println(newArray);
+        for (int i = newArray.length - 1; i >= 0; i--) {
+            result = result + newArray[i];
+        }
+        return result;
+    }
+
+    public static void rotateArray(int[] arr, int k) {
+        if (k > arr.length) {
+            k = k % arr.length;
+        }
+
+        int[] result = new int[arr.length];
+        for (int i = 0; i < k; i++) {
+            result[i] = arr[arr.length - k + i];
+        }
+        int j = 0;
+        for (int i = k; i < arr.length; i++) {
+            result[i] = arr[j];
+            j++;
+        }
+        System.arraycopy(result, 0, arr, 0, arr.length);
+
+    }
+
+    //Write a Java program to get the character at the given index within the String.
+    public static void getChaIndex(String str, int ind) {
+        StringBuilder sb = new StringBuilder(str);
+        try {
+            System.out.println(sb.charAt(ind));
+
+        } catch (StringIndexOutOfBoundsException e) {
+            System.out.println("String length is less than the provided index");
+        }
+    }
+
+    /*
+  Given an array arr[] of positive integers of size N. Reverse every sub-array
+ group of size K.
+Note: If at any instance, there are no more subarrays of size greater than or equal to K,
+then reverse the last subarray (irrespective of its size). You shouldn't return any array,
+ modify the given array in-place.
+
+Example 1:
+
+Input:
+N = 5, K = 3
+arr[] = {1,2,3,4,5}
+Output: 3 2 1 5 4
+Explanation: First group consists of elements
+1, 2, 3. Second group consists of 4,5.
+
+
+Example 2:
+
+Input:
+N = 4, K = 3
+arr[] = {5,6,8,9}
+Output: 8 6 5 9
+
+    * */
+    public static void reverseInGroups(int[] arr, int n, int k) {
+        List<Integer> list = new ArrayList<>();
+        if (k > n) {
+            System.out.println(k + " can not be greater is " + n);
+        }
+        for (int i = 0; i < n; i += k) {
+            int left = i;
+            int right = Math.min(i + k - 1, n - 1);
+            int temp;
+            while (left < right) {
+                temp = arr[left];
+                arr[left] = arr[right];
+                arr[right] = temp;
+                left += 1;
+                right -= 1;
+            }
+        }
+        System.out.print("Modified array is: ");
+        for (int i = 0; i < n; i++)
+            System.out.print(arr[i] + " ");
+    }
+    /*
+    Given an array A of positive integers. Your task is to find the leaders in the array.
+    An element of array is leader if it is greater than or equal to all the elements to its right side.
+    The rightmost element is always a leader.
+    Example 1:
+    Input:
+    n = 6
+    A[] = {16,17,4,3,5,2}
+    Output: 17 5 2
+    Explanation: The first leader is 17
+    as it is greater than all the elements
+    to its right.  Similarly, the next
+    leader is 5. The right most element
+    is always a leader so it is also
+    included.
+
+    Example 2:
+    Input:
+    n = 5
+    A[] = {1,2,3,4,0}
+    Output: 4 0
+
+    Your Task:
+    You don't need to read input or print anything. The task is to complete the function leader()
+    which takes array A and n as input parameters and returns an array of leaders in order of their
+    appearance.
+
+    */
+
 }
+
+
+
+
